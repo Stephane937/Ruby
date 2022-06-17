@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+
+      <center><h1> En ce moment chez VEG TIME - Un large choix de plats végétariens</h1></center>
+      <% @vegs.each do |veg| %>
+          <div class="  col-sm-2 col-md-3 ">
+              <%= image_tag ("/assets/#{veg.id}.jpg"), :size => "400x300"%>
+              <div class="card-body text-center">
+                  <h1> <%= veg.nom %></h1>
+                  <h3>Prix : <%= veg.prix %> euros</h3>
+
+                  <p>
+                    <a href="<%= veg_path(veg.id) %>"class="btn btn-primary">Lire la suite</a>
+                    <a href="<%= edit_veg_path(veg.id) %>"class="btn btn-primary">Modifier</a>
+                    <%= button_to "Supprimer", veg, form: { data: { turbo_confirm: "Are you sure?" } }, method: :delete %>
+                  </p>
+              </div>
+            </div>
+            <br>
+    <%end %>
+  <footer class=" text-white text-center text-lg-start">
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: #6CA960">
+      © 2022 Copyright : Designed by Stéphane SELVATHASAN
+      <a class="text-white">Projet Ruby on Rails</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+</div>
+
+
